@@ -1,0 +1,34 @@
+ID = Sn12+_01
+
+Z = 50
+NuclearRadius = 5.4595
+NuclearThickness = 2.3
+
+[Lattice]
+NumPoints = 1000
+StartPoint = 1.e-6
+EndPoint = 15.0
+
+[HF]
+N = 38
+Configuration = '1s2 2s2 2p6 3s2 3p6 3d10: 4s2 4p6 4d2'
+
+[Basis]
+--bspline-basis
+ValenceBasis = 5spdfg
+FrozenCore = 3spd
+
+[CI]
+--print-configurations
+LeadingConfigurations = '4s2 4p6 4d2'
+ElectronExcitations = 10
+HoleExcitations = 0
+--all-symmetries
+--no-gfactors
+ConfigurationAverageEnergyRange = '-166.45 , -165.45'
+
+NumSolutions = 1
+
+[CI/Output]
+--write-hamiltonian
+--sort-matrix-by-configuration

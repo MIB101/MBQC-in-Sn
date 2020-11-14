@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#PBS -l select=1:ncpus=16:mem=123GB:mpiprocs=1                                
+#PBS -l walltime=1:00:00
+#PBS -r n
+#PBS -M z1234567@ad.unsw.edu.au
+#PBS -m ae                                                      
+
+module purge
+module add intel/2020.0.088
+module add python/2.7.15 
+module add scons/3.0.5
+module add intelmpi/2019.6.166
+module add gcc/8.4.0
+module add sparsehash/2.0.3
+module add gsl/2.6
+module add boost/1.73.0-gcc8
+
+cd ${PBS_O_WORKDIR}/df-0
+
+export OMP_NUM_THREADS=16
+export MKL_NUM_THREADS=16
+
+I_MPI_HYDRA_TOPOLIB=ipl mpirun --map-by ppr:1:socket:pe=$OMP_NUM_THREADS \
+  /srv/scratch/ambit/ambit_zerooffdiag Spectra.input > SpectraNoCI.txt
