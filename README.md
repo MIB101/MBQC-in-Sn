@@ -39,6 +39,8 @@ The leading configurations, valence configuration, number of electrons and Confi
   * Calculates the line strength and intensity spectra based on a trial and error, empirical heuristic.
 * Level_Growth_Parameter.nb
   * Calculates the level growth parameter for the various ions.
+* Monte-Carlo.nb
+  * Uses a Monte-Carlo simulation to caluclate the level repulsion of the average configurations due to CI.
 * Plasma_Spectra.nb
   * Calculates the intensity spectra of a Plasma at a given temperature and ionic composition.
 * Spectra_Calculation
